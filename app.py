@@ -3,13 +3,13 @@ import streamlit as st
 
 from barfi import Block
 
-feed = Block(name='Feed')
+feed = Block(name='LLM')
 feed.add_output()
 def feed_func(self):
     self.set_interface(name='Output 1', value=4)
 feed.add_compute(feed_func)
 
-splitter = Block(name='Splitter')
+splitter = Block(name='VectorStore')
 splitter.add_input()
 splitter.add_output()
 splitter.add_output()
@@ -20,7 +20,7 @@ def splitter_func(self):
     self.set_interface(name='Output 2', value=value)
 splitter.add_compute(splitter_func)
 
-mixer = Block(name='Mixer')
+mixer = Block(name='Agent')
 mixer.add_input()
 mixer.add_input()
 mixer.add_output()
