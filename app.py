@@ -70,7 +70,7 @@ load_schema = st.selectbox('Select a saved schema:', barfi_schemas())
 
 compute_engine = st.checkbox('Activate barfi compute engine', value=False)
 
-barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Agent, result],
+barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Chain, Agent, result],
                     compute_engine=compute_engine, load_schema=load_schema)
 
 if barfi_result:
