@@ -13,7 +13,7 @@ LLM = Block(name='LLM')
 LLM.add_output()
 def get_llm(self):
     llm = OpenAI(temperature=0.9)
-    self.set_interface(name='llm', value=llm)
+    self.set_interface(name='Output 1', value=llm)
 LLM.add_compute(get_llm)
 
 Prompt = Block(name='Prompt')
@@ -23,7 +23,7 @@ def get_prompt(self):
         input_variables=["product"],
         template="What is a good name for a company that makes {product}?",
     )
-    self.set_interface(name='prompt', value=prompt)
+    self.set_interface(name='Output 1', value=prompt)
 Prompt.add_compute(get_prompt)
 
 Memory = Block(name='Memory')
@@ -42,12 +42,12 @@ Chain = Block(name='Chain')
 Chain.add_input()
 Chain.add_input()
 Chain.add_output()
-def mixer_func(self):
-    llm = self.get_interface(name='llm')
-    prompt = self.get_interface(name='prompt')
+def chain_run(self):
+    llm = self.get_interface(name='Input 1')
+    prompt = self.get_interface(name='Input 2')
     chain = LLMChain(llm=llm, prompt=prompt)
-    self.set_interface(name='Chain Output', value=chain.run({product:query}))
-Chain.add_compute(mixer_func)
+    self.set_interface(name='Output 1', value=chain.run({product:query}))
+Chain.add_compute(chain_run)
 
 Agent = Block(name='Agent')
 Agent.add_input()
@@ -75,4 +75,4 @@ barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Chain, Ag
                     compute_engine=compute_engine, load_schema=load_schema)
 
 if barfi_result:
-    st.write(barfi_result)
+    st.write(result_func())
