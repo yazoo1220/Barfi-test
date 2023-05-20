@@ -27,7 +27,7 @@ def splitter_func(self):
 outline.add_compute(splitter_func)
 
 writing = Block(name='ドラフト')
-outline.add_input()
+writing.add_input()
 writing.add_output()
 def feed_func(self):
     in_1 = self.get_interface(name='段落テーマ')
