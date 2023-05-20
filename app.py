@@ -81,4 +81,4 @@ barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Chain, Ag
 
 if barfi_result:
     st.write(barfi_result)
-    st.write(barfi_result)['Result-1']['block'].get_interface(name='Input 1'))
+    st.write(barfi_result)['Result-1']['block'].get_interface(name='Input 1')
