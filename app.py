@@ -47,7 +47,7 @@ def chain_run(self):
     prompt = self.get_interface(name='Input 2')
     chain = LLMChain(llm=llm, prompt=prompt)
     answer = chain.run(query)
-    self.set_interface(name='Output 1', value=answer)
+    self.set_interface(name='Output 1', value=4) #answer)
     return answer
 Chain.add_compute(chain_run)
 
