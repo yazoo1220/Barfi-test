@@ -7,7 +7,7 @@ import streamlit as st
 
 from barfi import Block
 
-eed = Block(name='Feed')
+feed = Block(name='Feed')
 feed.add_output()
 def feed_func(self):
     self.set_interface(name='Output 1', value=4)
