@@ -67,7 +67,7 @@ result.add_input()
 result.add_output()
 def result_func(self):
     result = self.get_interface(name='Input 1')
-    self.set_interface(name='result', value=result)
+    self.set_interface(name='result', value=4)
     output_area = st.empty()
     output_area.markdown(result)
 result.add_compute(result_func)
