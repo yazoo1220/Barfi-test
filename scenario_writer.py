@@ -30,6 +30,7 @@ writing = Block(name='ドラフト')
 outline.add_input()
 writing.add_output()
 def feed_func(self):
+    in_1 = self.get_interface(name='段落テーマ')
     self.set_interface(name='ドラフト', value=4)
 writing.add_compute(feed_func)
 
