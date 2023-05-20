@@ -4,10 +4,10 @@ import streamlit as st
 from barfi import Block
 
 theme = Block(name='テーマ')
-llm.add_output()
+theme.add_output()
 def feed_func(self):
     self.set_interface(name='テーマ', value=4)
-feed.add_compute(feed_func)
+theme.add_compute(feed_func)
 
 outlilne = Block(name='アウトライン')
 outlilne.add_input()
@@ -38,7 +38,7 @@ def splitter_func(self):
     value = (in_1/2)
     self.set_interface(name='差し戻し', value=value)
     self.set_interface(name='通過', value=value)
-splitter.add_compute(splitter_func)
+validation.add_compute(splitter_func)
 
 mixer = Block(name='統合')
 mixer.add_input()
