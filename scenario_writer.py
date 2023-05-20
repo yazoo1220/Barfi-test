@@ -9,10 +9,10 @@ def feed_func(self):
     self.set_interface(name='テーマ', value=4)
 theme.add_compute(feed_func)
 
-outlilne = Block(name='アウトライン')
-outlilne.add_input()
-outlilne.add_output()
-outlilne.add_output()
+outline = Block(name='アウトライン')
+outline.add_input()
+outline.add_output()
+outline.add_output()
 def splitter_func(self):
     in_1 = self.get_interface(name='テーマ')
     value = (in_1/2)
@@ -21,7 +21,7 @@ def splitter_func(self):
     self.set_interface(name='段落２', value=value)
     self.set_interface(name='段落３', value=value)
     self.set_interface(name='まとめ', value=value)
-outlilne.add_compute(splitter_func)
+outline.add_compute(splitter_func)
 
 writing = Block(name='ドラフト')
 writing.add_output()
