@@ -13,7 +13,7 @@ LLM = Block(name='LLM')
 LLM.add_output()
 def get_llm(self):
     llm = OpenAI(temperature=0.9)
-    self.set_interface(name='llm', value=4)
+    self.set_interface(name='llm', value=llm)
 LLM.add_compute(get_llm)
 
 Prompt = Block(name='Prompt')
@@ -23,6 +23,7 @@ def get_prompt(self):
         input_variables=["product"],
         template="What is a good name for a company that makes {product}?",
     )
+    self.set_interface(name='prompt', value=prompt)
 Prompt.add_compute(get_prompt)
 
 Memory = Block(name='Memory')
