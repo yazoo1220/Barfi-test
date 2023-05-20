@@ -13,6 +13,9 @@ outline = Block(name='目次')
 outline.add_input()
 outline.add_output()
 outline.add_output()
+outline.add_output()
+outline.add_output()
+outline.add_output()
 def splitter_func(self):
     in_1 = self.get_interface(name='テーマ')
     value = (in_1/2)
@@ -24,6 +27,7 @@ def splitter_func(self):
 outline.add_compute(splitter_func)
 
 writing = Block(name='ドラフト')
+outline.add_input()
 writing.add_output()
 def feed_func(self):
     self.set_interface(name='ドラフト', value=4)
