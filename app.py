@@ -23,11 +23,11 @@ def feed_func(self):
     self.set_interface(name='Output 1', value=4)
 Memory.add_compute(feed_func)
 
-VC = Block(name='VectorStore')
-VC.add_output()
+VectorStore = Block(name='VectorStore')
+VectorStore.add_output()
 def feed_func(self):
     self.set_interface(name='Output 1', value=4)
-VC.add_compute(feed_func)
+VectorStore.add_compute(feed_func)
 
 Chain = Block(name='Chain')
 Chain.add_input()
