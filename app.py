@@ -64,7 +64,8 @@ result = Block(name='Result')
 result.add_input()
 def result_func(self):
     result = self.get_interface(name='Input 1')
-    st.markdown(result)
+    output_area = st.empty()
+    output_area.markdown(result)
 result.add_compute(result_func)
 
 load_schema = st.selectbox('Select a saved schema:', barfi_schemas())
@@ -75,4 +76,4 @@ barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Chain, Ag
                     compute_engine=compute_engine, load_schema=load_schema)
 
 if barfi_result:
-    st.write(result_func())
+    st.write(barfi_result)
