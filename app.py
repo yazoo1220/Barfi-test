@@ -173,9 +173,9 @@ math_blocks = [number_10, number_5, result, addition, subtraction, multiplicatio
 #     output_area.markdown(result)
 # result.add_compute(result_func)
 
-# load_schema = st.selectbox('Select a saved schema:', barfi_schemas())
+load_schema = st.selectbox('Select a saved schema:', barfi_schemas())
 
-# compute_engine = st.checkbox('Activate barfi compute engine', value=False)
+compute_engine = st.checkbox('Activate barfi compute engine', value=False)
 
 # barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Chain, Agent, result],
 #                     compute_engine=compute_engine, load_schema=load_schema)
