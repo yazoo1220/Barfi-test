@@ -10,8 +10,6 @@ from barfi import Block
 query = st.text_input('query')
 
 LLM = Block(name='LLM')
-LLM.add_input()
-LLM.add_input()
 LLM.add_output()
 def get_llm(self):
     llm = OpenAI(temperature=0.9)
