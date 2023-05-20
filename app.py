@@ -46,7 +46,9 @@ def chain_run(self):
     llm = self.get_interface(name='Input 1')
     prompt = self.get_interface(name='Input 2')
     chain = LLMChain(llm=llm, prompt=prompt)
-    self.set_interface(name='Output 1', value=chain.run({product:query}))
+    answer = chain.run(query)
+    self.set_interface(name='Output 1', value=answer)
+    return answer
 Chain.add_compute(chain_run)
 
 Agent = Block(name='Agent')
@@ -62,8 +64,10 @@ Agent.add_compute(mixer_func)
 
 result = Block(name='Result')
 result.add_input()
+result.add_output()
 def result_func(self):
     result = self.get_interface(name='Input 1')
+    self.set_interface(name='result', value=result)
     output_area = st.empty()
     output_area.markdown(result)
 result.add_compute(result_func)
@@ -76,4 +80,4 @@ barfi_result = st_barfi(base_blocks=[LLM, Prompt, Memory, VectorStore, Chain, Ag
                     compute_engine=compute_engine, load_schema=load_schema)
 
 if barfi_result:
-    st.write(barfi_result['Result-1']['block'].get_interface(name='Input 1'))
+    st.write(barfi_result) #['Result-1']['block'].get_interface(name='Input 1'))
