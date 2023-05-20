@@ -3,33 +3,53 @@ import streamlit as st
 
 from barfi import Block
 
-feed = Block(name='LLM')
-feed.add_output()
+LLM = Block(name='LLM')
+LLM.add_input()
+LLM.add_input()
+LLM.add_output()
 def feed_func(self):
     self.set_interface(name='Output 1', value=4)
-feed.add_compute(feed_func)
+LLM.add_compute(feed_func)
 
-splitter = Block(name='VectorStore')
-splitter.add_input()
-splitter.add_output()
-splitter.add_output()
-def splitter_func(self):
-    in_1 = self.get_interface(name='Input 1')
-    value = (in_1/2)
-    self.set_interface(name='Output 1', value=value)
-    self.set_interface(name='Output 2', value=value)
-splitter.add_compute(splitter_func)
+Prompt = Block(name='Prompt')
+Prompt.add_output()
+def feed_func(self):
+    self.set_interface(name='Output 1', value=4)
+Prompt.add_compute(feed_func)
 
-mixer = Block(name='Agent')
-mixer.add_input()
-mixer.add_input()
-mixer.add_output()
+Memory = Block(name='Memory')
+Memory.add_output()
+def feed_func(self):
+    self.set_interface(name='Output 1', value=4)
+Memory.add_compute(feed_func)
+
+VC = Block(name='VectorStore')
+VC.add_output()
+def feed_func(self):
+    self.set_interface(name='Output 1', value=4)
+VC.add_compute(feed_func)
+
+Chain = Block(name='Chain')
+Chain.add_input()
+Chain.add_input()
+Chain.add_output()
 def mixer_func(self):
     in_1 = self.get_interface(name='Input 1')
     in_2 = self.get_interface(name='Input 2')
     value = (in_1 + in_2)
     self.set_interface(name='Output 1', value=value)
-mixer.add_compute(mixer_func)
+Chain.add_compute(mixer_func)
+
+Agent = Block(name='Agent')
+Agent.add_input()
+Agent.add_input()
+Agent.add_output()
+def mixer_func(self):
+    in_1 = self.get_interface(name='Input 1')
+    in_2 = self.get_interface(name='Input 2')
+    value = (in_1 + in_2)
+    self.set_interface(name='Output 1', value=value)
+Agent.add_compute(mixer_func)
 
 result = Block(name='Result')
 result.add_input()
