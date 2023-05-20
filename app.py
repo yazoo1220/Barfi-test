@@ -183,9 +183,9 @@ compute_engine = st.checkbox('Activate barfi compute engine', value=False)
 barfi_result = st_barfi(
     base_blocks=math_blocks, compute_engine=compute_engine, load_schema=load_schema)
 
-if barfi_result:
-    st.write(barfi_result['Result-id-524173']['block'].get_interface(name='Input 1'))
-    st.write(barfi_result)
+# if barfi_result:
+#     st.write(barfi_result['Result-id-524173']['block'].get_interface(name='Input 1'))
+#     st.write(barfi_result)
 
 if barfi_result:
     st.write(barfi_result)
