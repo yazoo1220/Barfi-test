@@ -9,7 +9,7 @@ def feed_func(self):
     self.set_interface(name='テーマ', value=4)
 theme.add_compute(feed_func)
 
-outline = Block(name='アウトライン')
+outline = Block(name='目次')
 outline.add_input()
 outline.add_output()
 outline.add_output()
